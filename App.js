@@ -7,7 +7,7 @@ import LottieView from "lottie-react-native";
 
 const AnimatedFlatlist = Animated.createAnimatedComponent(FlatList);
 const data = ["1", "2", "3", "4", "5", "6"];
-const { width, height } = Dimensions.get("screen");
+const { width } = Dimensions.get("screen");
 
 const EmptyComponent = (props) => {
   return (
@@ -29,7 +29,6 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [listData, setListData] = useState([]);
 
-  const ref = useRef();
   const refreshSimulationHandler = () => {
     setListData([]);
     setIsLoading(true);
@@ -42,16 +41,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <View
-        style={{ width: "100%", height: 100, backgroundColor: "grey" }}
-      ></View>
+      <View style={styles.header}></View>
       <Refreshable
         Loader={() => (
           <LottieView
-            style={{
-              width: 50,
-              height: 50,
-            }}
+            style={styles.lottie}
             autoPlay
             source={require("./assets/lottie/refresh.json")}
           />
@@ -63,9 +57,8 @@ export default function App() {
         EmptyComponent={EmptyComponent}
       >
         <AnimatedFlatlist
-          ref={ref}
           data={listData}
-          bounces={true}
+          bounces={false}
           keyExtractor={(item) => item}
           renderItem={({ item }) => {
             return <ListItem item={item} />;
@@ -88,11 +81,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  header: { width: "100%", height: 100, backgroundColor: "grey" },
   contenContainer: {
     paddingVertical: 10,
     paddingHorizontal: 16,
     paddingBottom: 100,
     alignItems: "center",
+  },
+  lottie: {
+    width: 50,
+    height: 50,
   },
   scrollList: { width, paddingTop: 20 },
 });
