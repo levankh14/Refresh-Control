@@ -1,5 +1,6 @@
+import LottieView from "lottie-react-native/lib/LottieView";
 import React, { useEffect, useRef } from "react";
-import { StyleSheet, View, FlatList, Dimensions } from "react-native";
+import { StyleSheet, View, Dimensions } from "react-native";
 import {
   PanGestureHandler,
   NativeViewGestureHandler,
@@ -16,18 +17,21 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-const { width, height } = Dimensions.get("screen");
+const { height } = Dimensions.get("screen");
 
-const AnimatedFlatlist = Animated.createAnimatedComponent(FlatList);
 const REFRESH_HEIGHT = height * 0.5;
 
-const Refreshable = ({
-  data = ["1", "2", "3", "4", "5", "6"],
-  isRefreshingOuter,
+const RefreshableWrapper = ({
+  isLoading,
   onRefresh,
   children,
-  Loader,
-  Component,
+  Loader = () => (
+    <LottieView
+      style={styles.lottie}
+      autoPlay
+      source={require("./refresh.json")}
+    />
+  ),
 }) => {
   const panRef = useRef();
   const listWrapperRef = useRef();
@@ -37,12 +41,12 @@ const Refreshable = ({
   const isLoaderActive = useSharedValue(false);
 
   useEffect(() => {
-    if (!isRefreshingOuter) {
+    if (!isLoading) {
       loaderOffsetY.value = withTiming(0);
       isRefreshing.value = withTiming(false);
       isLoaderActive.value = false;
     }
-  }, [isRefreshingOuter]);
+  }, [isLoading]);
 
   const onListScroll = useAnimatedScrollHandler((event) => {
     listContentOffsetY.value = event.contentOffset.y;
@@ -152,6 +156,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingBottom: 100,
   },
+  lottie: {
+    height: 50,
+    width: 50,
+  },
 });
 
-export default Refreshable;
+export default RefreshableWrapper;

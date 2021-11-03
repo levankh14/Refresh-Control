@@ -5475,6 +5475,11 @@ temp@0.8.3:
     os-tmpdir "^1.0.0"
     rimraf "~2.2.6"
 
+test-refreshable@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/test-refreshable/-/test-refreshable-1.0.0.tgz#5ec3cba99663447fea40cff4ea8ac2202d2fffc9"
+  integrity sha512-34hqhwda/GPYuJuF7fr+uP3DyVVH6k8bIOzLSh2ICRaHVhqG/7gz4PXOQfawEBuhRfvPpoYSjPNnJNiwl8FOzQ==
+
 thenify-all@^1.0.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/thenify-all/-/thenify-all-1.6.0.tgz#1a1918d402d8fc3f98fbf234db0bcc8cc10e9726"

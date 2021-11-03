@@ -1,8 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
 import Animated from "react-native-reanimated";
-import Refreshable from "./components/refreshControl/FeedList";
+// import RefreshableWrapper from "./react-native-fresh-refresh-test";
+import RefreshableWrapper from "test-refreshable";
 import LottieView from "lottie-react-native";
 
 const AnimatedFlatlist = Animated.createAnimatedComponent(FlatList);
@@ -42,7 +43,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.header}></View>
-      <Refreshable
+      <RefreshableWrapper
         Loader={() => (
           <LottieView
             style={styles.lottie}
@@ -50,7 +51,7 @@ export default function App() {
             source={require("./assets/lottie/refresh.json")}
           />
         )}
-        isRefreshingOuter={isLoading}
+        isLoading={isLoading}
         onRefresh={() => {
           refreshSimulationHandler();
         }}
@@ -69,7 +70,7 @@ export default function App() {
           scrollEventThrottle={16}
           ListEmptyComponent={() => <EmptyComponent />}
         />
-      </Refreshable>
+      </RefreshableWrapper>
     </View>
   );
 }
