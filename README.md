@@ -1,8 +1,12 @@
-# Aniuta
+# react-native-fresh-refresh
 
-> The simplest Wrapper for custom refresh
+> The simplest custom pull to refresh
 
-![Aniuta logo](https://raw.githubusercontent.com/4twiggers/aniuta/master/aniuta.png)
+### Usage
+
+## Step 1
+
+Install
 
 ## Installation
 
@@ -17,14 +21,6 @@ or `npm`
 ```sh
 npm i -S react-native-fresh-refresh
 ```
-
-Use only Animated lists or regular View
-
-### Usage
-
-## Step 1
-
-Install
 
 ## Step 2
 
@@ -170,5 +166,3 @@ const styles = StyleSheet.create({
   scrollList: { width, paddingTop: 20 },
 });
 ```
-
-> See more examples in ./example folder
