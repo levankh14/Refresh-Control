@@ -1,14 +1,12 @@
 # react-native-fresh-refresh
 
-> The simplest custom pull to refresh
+> Custom pull to refresh Component
 
 ### Usage
 
 ## Step 1
 
-Install
-
-## Installation
+### Installation
 
 Use `yarn`
 
@@ -28,11 +26,9 @@ npm i -S react-native-fresh-refresh
 import RefreshableWrapper from "react-native-fresh-refresh";
 ```
 
-## step 3
+## Step 3
 
 Create Animated List or regular View to use pull to refresh
-
-example:
 
 ```jsx
 const AnimatedFlatlist = Animated.createAnimatedComponent(FlatList);
@@ -41,8 +37,6 @@ const AnimatedFlatlist = Animated.createAnimatedComponent(FlatList);
 ## Step 4
 
 Wrap the component
-
-example:
 
 ```jsx
 <RefreshableWrapper
@@ -62,7 +56,7 @@ example:
 </RefreshableWrapper>
 ```
 
-# Example
+# -- Example
 
 ```jsx
 import { StatusBar } from "expo-status-bar";
@@ -71,10 +65,6 @@ import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
 import Animated from "react-native-reanimated";
 import RefreshableWrapper from "react-native-fresh-refresh";
 import LottieView from "lottie-react-native";
-
-// ! If List is needed , should be Animated.{list}
-
-// For View , there is no need of Animated.View
 
 const AnimatedFlatlist = Animated.createAnimatedComponent(FlatList);
 const data = ["1", "2", "3", "4", "5", "6"];
@@ -152,7 +142,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  header: { width: "100%", height: 100, backgroundColor: "grey" },
+  header: { width, height: 100, backgroundColor: "grey" },
   contenContainer: {
     paddingVertical: 10,
     paddingHorizontal: 16,
@@ -166,3 +156,7 @@ const styles = StyleSheet.create({
   scrollList: { width, paddingTop: 20 },
 });
 ```
+
+## Hire us
+
+Message us at hello@4twiggers.com
